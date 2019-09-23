@@ -4,7 +4,6 @@
     <btn-groups key="1a"></btn-groups>
     <MySearchButtonGroup key="a2"></MySearchButtonGroup>
     <MySearchGroup v-model="form" key='3c'></MySearchGroup>
-    <!-- <MySearchGroupOne></MySearchGroupOne> -->
   </div>
 </template>
 
@@ -21,7 +20,8 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  created(){}
+  created(){
+  }
 }
 </script>
 

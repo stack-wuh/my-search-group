@@ -3,7 +3,7 @@
     <div class="b-outer">
       <div class="b-inner">
         <div class="b-button"
-          v-for="(item, index) in list"
+          v-for="(item, index) in List"
           :key=" 'btn'+ index">
             <el-button
               :loading='item.loading' 
@@ -17,41 +17,43 @@
 </template>
 
 <script>
+ const List = [
+   {
+     text: 'Search',
+     ref: 'submit'
+   },
+   {
+     text: 'Reset',
+     ref: 'reset'
+   },
+   {
+     text: 'Export',
+     ref: 'export'
+   },
+   {
+     text: 'Import',
+     ref: 'import'
+   }
+ ]
  export default{
   name: 'MySearchButtonGroup',
   components: {},
-  props: {
-    list: {
-      type: Array,
-      default: () => [
-        {
-          text: 'search',
-          ref: 'search'
-        },
-        {
-          text: 'reset',
-          ref: 'reset'
-        }
-      ],
-      validator: (val) => {
-        return Array.isArray(val) && val.length
-      }
-    }
-  },
+  props: {},
   watch: {},
   computed: {},
   data(){
     return {
+      List
     }
   },
   methods: {
     handleBtnClick(item, index) {
       let { ref } = item
-      this.$set(this.list[index], 'loading', true)
+      this.$set(List[index], 'loading', true)
       this.$emit(item.ref)
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
-        this.$set(this.list[index], 'loading', false)
+        this.$set(List[index], 'loading', false)
       }, 800)
     }
   },

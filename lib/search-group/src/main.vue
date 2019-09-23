@@ -1,7 +1,7 @@
 <template>
   <section class='c-search-group'>
     <my-search-item
-      v-for="(item, index) in list"
+      v-for="(item, index) in List"
       :key='index + item.field'
       :type='item.type'
       :label="item.label"
@@ -10,13 +10,41 @@
       s-key='label'
       s-value='value'
       v-model='form[item.field]'>
-        <span slot="button">custom button area</span>
     </my-search-item>
   </section>
 </template>
 
 <script>
  import MySearchItem from '../../search-item'
+ const List = [
+   {
+     label: '姓名',
+     type: 'normal',
+     field: 'name'
+   },
+   {
+     label: '年龄',
+     type: 'normal',
+     field: 'age'
+   },
+   {
+     type: 'select',
+     field: 'state',
+     list: [
+       {
+         label: 'AAAA',
+         value: 1
+       },
+       {
+         label: 'BBBB',
+         value: 2
+       }
+     ]
+   },
+   {
+     type: 'button'
+   }
+ ]
  export default{
   name: 'MySearchGroup',
   model: {
@@ -35,16 +63,13 @@
     form: { // 绑定的值, 只能是一个Object类型
       type: Object,
       default: () => {}
-    },
-    list: {
-      type: Array,
-      default: () => []
     }
   },
   watch: {},
   computed: {},
   data(){
     return {
+      List
     }
   },
   methods: {},

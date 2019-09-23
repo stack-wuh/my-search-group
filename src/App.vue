@@ -1,22 +1,54 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <my-search-group v-model="form"></my-search-group>
-    <my-search-button-group></my-search-button-group>
+    <my-search-group v-model="form" :list='List'></my-search-group>
+    <!-- <my-search-button-group ></my-search-button-group> -->
   </div>
 </template>
 
 <script>
-// import MySearchGroup from './components/search-group'
-// import MySearch from './components'
+ const List = [
+   {
+     label: '姓名',
+     type: 'normal',
+     field: 'name'
+   },
+   {
+     label: '年龄',
+     type: 'normal',
+     field: 'age'
+   },
+   {
+     type: 'select',
+     field: 'state',
+     list: [
+       {
+         label: 'AAAA',
+         value: 1
+       },
+       {
+         label: 'BBBB',
+         value: 2
+       }
+     ]
+   },
+   {
+     type: 'button',
+     list: [
+       {
+         text: 'search',
+         ref: 'search'
+       }
+     ]
+   }
+ ]
 export default {
   name: 'app',
   components: {
-    // MySearchGroup
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      List,
       form: {}
     }
   }
