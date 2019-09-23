@@ -24,8 +24,8 @@
           </div>
       </template>
       <template v-else-if="type === 'button'">
-          <my-search-button-group v-if="Array.isArray(sList) && sList.length" :list='sList'></my-search-button-group>
-          <my-search-button-group v-else></my-search-button-group>
+          <my-search-button-group :key="'btn1' + type" v-on="$listeners" v-if="Array.isArray(sList) && sList.length" :list='sList'></my-search-button-group>
+          <my-search-button-group :key="'btn2' + type" v-on="$listeners" v-else></my-search-button-group>
       </template>
       <template v-else-if="type === 'button-custom'">
           <slot name='button'></slot>

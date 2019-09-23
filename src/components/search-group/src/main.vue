@@ -1,6 +1,7 @@
 <template>
   <section class='c-search-group'>
     <my-search-item
+      v-on="$listeners"
       v-for="(item, index) in list"
       :key='index + item.field'
       :type='item.type'
@@ -47,7 +48,8 @@
     return {
     }
   },
-  methods: {},
+  methods: {
+  },
   created(){},
   mixins: []
  }

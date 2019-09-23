@@ -3,12 +3,14 @@
     <div class="b-outer">
       <div class="b-inner">
         <div class="b-button"
-          v-for="(item, index) in list"
+          v-for="(item, index) in selfList"
           :key=" 'btn'+ index">
             <el-button
+              :disabled="item.rules ? (Array.isArray(item.rules) ? item.rules.indexOf(deepget(data, item.field)) !== -1 : item.rules == deepget(data, item.field)) : false"
               :loading='item.loading' 
-              @click="handleBtnClick(item, index)" 
-              size="small">{{item.text}}
+              @click="handleBtnClick({ ...item }, index)"
+              size="small">
+              {{item.text}}
             </el-button>
         </div>
       </div>
@@ -36,24 +38,36 @@
       validator: (val) => {
         return Array.isArray(val) && val.length
       }
+    },
+    data: {
+      type: Object,
+      default: () => {}
     }
   },
   watch: {},
   computed: {},
   data(){
     return {
+      selfList: this.list
     }
   },
   methods: {
+    deepget(from, selector){
+      return Array.isArray(selector) && selector.reduce((acc, val) => (acc && acc[val] ? acc[val] : null), from)
+    },
+    /**
+     * 按钮的点击事件
+     * 向上上传 ref 事件名
+     */
     handleBtnClick(item, index) {
       let { ref } = item
-      this.$set(this.list[index], 'loading', true)
-      this.$emit(item.ref)
+      this.$set(this.selfList[index], 'loading', true)
+      item.ref && this.$emit(item.ref)
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
-        this.$set(this.list[index], 'loading', false)
+        this.$set(this.selfList[index], 'loading', false)
       }, 800)
-    }
+    },
   },
   created(){},
   mixins: []

@@ -1,7 +1,7 @@
 {
   "name": "wh-search-group",
   "description": "ui component for vue base elementui",
-  "version": "0.0.2a",
+  "version": "0.0.3a",
   "author": "shadow <wuh131420@foxmail.com>",
   "license": "MIT",
   "private": false,
@@ -11,8 +11,8 @@
     "url": "git@github.com:stack-wuh/my-search-group.git"
   },
   "files": [
-    "lib",
-    "components"
+    "src",
+    "dist"
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",

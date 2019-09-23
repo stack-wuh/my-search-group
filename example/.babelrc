@@ -2,14 +2,5 @@
   "presets": [
     ["env", { "modules": false }],
     "stage-3"
-  ],
-  "plugins": [
-    [
-      "component", {
-        "libraryName": "wh-search-group",
-        "style": false
-      },
-      "wh-search-group"
-    ]
   ]
 }
