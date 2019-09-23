@@ -1,19 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
-var NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
-  entry: NODE_ENV === 'development' ? './src/main.js' : './src/components/index.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'search.js',
-    library: 'search',
-    libraryTarget: 'umd',
-    umdNamedDefine: true
-  },
-  externals: {
-    elementUI: 'element-ui'
+    filename: 'build.js'
   },
   module: {
     rules: [
@@ -68,7 +61,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf|woff)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -103,7 +96,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
+      sourceMap: true,
       compress: {
         warnings: false
       }
