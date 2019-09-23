@@ -47,10 +47,23 @@ Vue.use(mySearch)
 
 ## SearchGroup
 ### Props
+
 | 参数 | 说明 | 类型 | 默认值 |
+
 | :-- | :-- | :-- | :-- |
+
 | v-model | 绑定一个表单对象 | Object | none |
-| list | 迭代SearchItem的数组 | Array | [] |
+
+| list | 迭代SearchItem的数组 | Array | [] |            
+
+### List          
+| 参数 | 说明 | 默认值 |       
+| :-- | :-- | :-- |
+| label | 展示Item的label文本 |  none |
+| type | 说渲染的Item的类型 | normal, input |
+| field | 绑定表单的字段名 | none |
+| list | 若type为select, 则是Select下拉框的列表; 若type为button, 则为button列表 | none |
+
 
 ## SearchItem
 ### Props
