@@ -47,13 +47,9 @@ Vue.use(mySearch)
 
 ## SearchGroup
 ### Props
-
 | 参数 | 说明 | 类型 | 默认值 |
-
 | :-- | :-- | :-- | :-- |
-
 | v-model | 绑定一个表单对象 | Object | none |
-
 | list | 迭代SearchItem的数组 | Array | [] |            
 
 ### List          
