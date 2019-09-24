@@ -116,6 +116,9 @@ Vue.use(mySearch)
 | field | 需要验证的字段 | Array | none |
 | rules | 满足条件的值disabled为ture | Boolean | none |
 | loading | 是否loading转态 | Boolean | none |
+| color | 按钮的色彩 | String | default |
+| backgroundColor | 按钮的背景色 | default |
+| type | 按钮的类型 | String | default |
 
 ### Event
 | 参数 | 说明 | 类型 |  事件名 |

@@ -59,6 +59,7 @@ const btnList = [
   {
     _id: 0,
     text: 'down',
+    backgroundColor: '#fcc',
     field: ['states', 'state'],
     rules: [1],
     loading: false
@@ -66,6 +67,8 @@ const btnList = [
   {
     _id: 1,
     text: 'up',
+    type: 'text',
+    color: 'red',
     field: ['states', 'state'],
     rules: [2],
     loading: false

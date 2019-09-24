@@ -6,6 +6,8 @@
           v-for="(item, index) in selfList"
           :key=" 'btn'+ index">
             <el-button
+              :style="[{ color: item.color, backgroundColor: item.backgroundColor }]"
+              :type="item.type"
               :disabled="item.rules ? (Array.isArray(item.rules) ? item.rules.indexOf(deepget(data, item.field)) !== -1 : item.rules == deepget(data, item.field)) : false"
               :loading='item.loading' 
               @click="handleBtnClick({ ...item }, index)"
