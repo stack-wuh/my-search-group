@@ -1,7 +1,7 @@
 {
   "name": "wh-search-group",
   "description": "ui component for vue base elementui",
-  "version": "0.0.3a",
+  "version": "0.0.3b",
   "author": "shadow <wuh131420@foxmail.com>",
   "license": "MIT",
   "private": false,

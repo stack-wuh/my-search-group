@@ -79,7 +79,7 @@ Vue.use(mySearch)
 
 ### type
 | name | 说明 |
-| :-- | :-- | :-- |
+| :-- | :-- |
 | input, nromal, default | type的默认值, 默认展示input输入框 |
 | select | 类型设置为select下拉框 |
 | button | 类型设置为button组 |
@@ -88,15 +88,17 @@ Vue.use(mySearch)
 ### type == button
 > 默认设置两个按钮: search和reset               
 > 可以使用 ref 属性, 自定义事件名 
-#### event              
+
+#### event       
+
 | name | type | 传递事件名 |
-| :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | 
 | search | 确认搜索 | search |
 | reset | 重置事件 | reset |
 
 ### slot
 | name | 说明 |
-| :-- | :-- | :-- |
+| :-- | :-- |
 | button | 自定义的button区域 |
 
 ### type == select
@@ -113,6 +115,11 @@ Vue.use(mySearch)
 | 参数 | 说明 | 类型 | 默认值 |
 |:-- | :-- | :-- | :-- |
 | list | button迭代的数组 | Array | [{text: 'search', ref: 'search' }, { text: 'reset', ref: 'reset' }] |
+| _id | 按钮的隐藏Id | Number, String | none |
+| text | 按钮的Text文本 | String | none |
+| field | 需要验证的字段 | Array | none |
+| rules | 满足条件的值disabled为ture | Boolean | none |
+| loading | 是否loading转态 | Boolean | none |
 
 ### Event
 | 参数 | 说明 | 类型 |  事件名 |
