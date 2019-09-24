@@ -35,6 +35,6 @@
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "wh-search-group": "0.0.3-b"
+    "wh-search-group": "0.0.4"
   }
 }

@@ -1,5 +1,7 @@
 <template>
-  <section class='c-search-button-group'>
+  <section 
+    :style="[justifyWrap]"
+    class='c-search-button-group'>
     <div class="b-outer">
       <div class="b-inner">
         <div class="b-button"
@@ -44,10 +46,25 @@
     data: {
       type: Object,
       default: () => {}
+    },
+    align: {
+      type: String,
+      default: 'left'
     }
   },
   watch: {},
-  computed: {},
+  computed: {
+    justifyWrap() {
+      var style = {}
+      var transfer = {
+        'left': 'flex-start',
+        'center': 'center',
+        'right': 'flex-end'
+      }
+      style.justifyContent = transfer[this.align]
+      return style
+    }
+  },
   data(){
     return {
       selfList: this.list

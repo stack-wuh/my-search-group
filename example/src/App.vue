@@ -73,6 +73,9 @@ const btnList = [
   {
     _id: 1,
     text: 'up',
+    type: 'text',
+    color: 'red',
+    backgroundColor: '#ffcc00',
     field: ['states', 'state'],
     rules: [2],
     loading: false

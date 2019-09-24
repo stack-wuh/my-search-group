@@ -119,6 +119,7 @@ Vue.use(mySearch)
 | color | 按钮的色彩 | String | default |
 | backgroundColor | 按钮的背景色 | default |
 | type | 按钮的类型 | String | default |
+| align | 按钮在flex布局下主轴的对齐 | String | left |
 
 ### Event
 | 参数 | 说明 | 类型 |  事件名 |

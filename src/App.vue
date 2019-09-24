@@ -10,7 +10,7 @@
       <el-table-column label="年龄" prop="age"></el-table-column>
       <el-table-column label="状态" prop="state">
         <template slot-scope="scope">
-          <MySearchButtonGroup :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
+          <MySearchButtonGroup align='center' :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
         </template>
       </el-table-column>
     </el-table>
