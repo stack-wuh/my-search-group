@@ -10,7 +10,7 @@
       <el-table-column label="年龄" prop="age"></el-table-column>
       <el-table-column label="状态" prop="state">
         <template slot-scope="scope">
-          <MySearchButtonGroup align='center' :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
+          <MySearchButtonGroup @down="handleDown" @up="handleUp" :scope="scope" align='center' :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
         </template>
       </el-table-column>
     </el-table>
@@ -59,6 +59,7 @@ const btnList = [
   {
     _id: 0,
     text: 'down',
+    ref: 'down',
     backgroundColor: '#fcc',
     field: ['states', 'state'],
     rules: [1],
@@ -67,6 +68,7 @@ const btnList = [
   {
     _id: 1,
     text: 'up',
+    ref: 'up',
     type: 'text',
     color: 'red',
     field: ['states', 'state'],
@@ -112,6 +114,12 @@ export default {
     }
   },
   methods: {
+    handleUp(e){
+      console.log('is clicked up', e)
+    },
+    handleDown(e){
+      console.log('is clicked down', e)
+    },
     handleSearch (e) {
       if (Object.values(this.form).every(s => s.toString()[0])) {
           this.data.push(this.form)

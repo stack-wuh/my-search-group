@@ -50,7 +50,8 @@
     align: {
       type: String,
       default: 'left'
-    }
+    },
+    scope: Object
   },
   watch: {},
   computed: {
@@ -81,7 +82,7 @@
     handleBtnClick(item, index) {
       let { ref } = item
       this.$set(this.selfList[index], 'loading', true)
-      item.ref && this.$emit(item.ref)
+      item.ref && this.$emit(item.ref, { scope: this.scope })
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
         this.$set(this.selfList[index], 'loading', false)
