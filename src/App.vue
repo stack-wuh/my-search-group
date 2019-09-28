@@ -5,23 +5,11 @@
       @search="handleSearch"
       v-model="form" 
       :list='List'>
-        <!-- <div slot="button">
-          <el-button @click="handleBtnClick">click me</el-button>
-        </div> -->
     </my-search-group>
 
     <my-search-button-group
       :list="btnList">
     </my-search-button-group>
-    <!-- <el-table border stripe :data="data">
-      <el-table-column label="姓名" prop="name"></el-table-column>
-      <el-table-column label="年龄" prop="age"></el-table-column>
-      <el-table-column label="状态" prop="state">
-        <template slot-scope="scope">
-          <MySearchButtonGroup @down="handleDown" @up="handleUp" :scope="scope" align='center' :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
-        </template>
-      </el-table-column>
-    </el-table> -->
   </div>
 </template>
 
@@ -59,26 +47,30 @@ const btnList = [
     text: 'down',
     ref: 'down',
     backgroundColor: '#fcc',
-    field: ['states', 'state'],
-    rules: [1],
-    loading: false
+    options: {
+      type: 'primary',
+      isLoading: true
+    },
+    validator: (data) => {
+      console.log(data)
+    }
   },
   {
     _id: 1,
     text: 'up',
     ref: 'up',
-    type: 'text',
-    color: 'red',
-    field: ['states', 'state'],
-    rules: [2],
-    loading: false
+    options: {
+      type: 'text',
+      isLoading: false
+    }
   },
   {
     _id: 2,
     text: 'show',
-    field: ['states', 'state'],
-    rules: [1],
-    loading: false
+    options: {
+      type: 'default',
+      isLoading: true
+    }
   }
 ]
 export default {

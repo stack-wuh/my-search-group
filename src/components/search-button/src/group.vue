@@ -10,8 +10,8 @@
             <el-button
               v-bind="item.options"
               :style="[{ color: item.color, backgroundColor: item.backgroundColor }]"
-              :disabled="item.rules ? (Array.isArray(item.rules) ? item.rules.indexOf(deepget(data, item.field)) !== -1 : item.rules == deepget(data, item.field)) : false"
               @click="handleBtnClick({ ...item }, index)"
+              :disabled="btnDisabled(item.validator)"
               size="small">
               {{item.text}}
             </el-button>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+ import Types from '../../../utils/types'
  export default{
   name: 'MySearchButtonGroup',
   components: {},
@@ -67,12 +68,20 @@
   },
   data(){
     return {
-      selfList: this.list
+      selfList: this.list,
+      Types
     }
   },
   methods: {
+    btnDisabled(from) {
+      if (from) {
+        if (Types.isFunc(from)) return from(this.scope)
+        return false
+      }
+      return false
+    },
     deepget(from, selector){
-      return Array.isArray(selector) && selector.reduce((acc, val) => (acc && acc[val] ? acc[val] : null), from)
+      return Types.isArray(selector) && selector.reduce((acc, val) => (acc && acc[val] ? acc[val] : null), from)
     },
     /**
      * 按钮的点击事件
