@@ -113,13 +113,18 @@ Vue.use(mySearch)
 | list | button迭代的数组 | Array | [{text: 'search', ref: 'search' }, { text: 'reset', ref: 'reset' }] |
 | _id | 按钮的隐藏Id | Number, String | none |
 | text | 按钮的Text文本 | String | none |
-| field | 需要验证的字段 | Array | none |
-| rules | 满足条件的值disabled为ture | Boolean | none |
-| loading | 是否loading转态 | Boolean | none |
 | color | 按钮的色彩 | String | default |
 | backgroundColor | 按钮的背景色 | default |
-| type | 按钮的类型 | String | default |
 | align | 按钮在flex布局下主轴的对齐 | String | left |
+| options | Element中Button组件的属性 | Object | default |
+
+#### Options
+高度定制的ButtonGroup组件可以在任何地方使用, 在表格中需要多条件使用的情景可以使用Options中的validator, 例如:
+{
+  text: 'down',
+  ref: 'down',
+  validator: Function(b: Boolean), Boolean
+}
 
 ### Event
 | 参数 | 说明 | 类型 |  事件名 |
