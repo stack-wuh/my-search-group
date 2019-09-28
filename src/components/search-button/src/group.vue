@@ -83,14 +83,12 @@
       if (isLoading) {
         this.$set(this.selfList[index].options, 'loading', true)
       }
-      this.$set(this.selfList[index], 'loading', true)
       item.ref && this.$emit(item.ref, { scope: this.scope })
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
         if (isLoading) {
           this.$set(this.selfList[index].options, 'loading', false)
         }
-        this.$set(this.selfList[index], 'loading', false)
       }, 800)
     },
   },
