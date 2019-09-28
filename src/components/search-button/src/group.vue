@@ -8,10 +8,9 @@
           v-for="(item, index) in selfList"
           :key=" 'btn'+ index">
             <el-button
+              v-bind="item.options"
               :style="[{ color: item.color, backgroundColor: item.backgroundColor }]"
-              :type="item.type"
               :disabled="item.rules ? (Array.isArray(item.rules) ? item.rules.indexOf(deepget(data, item.field)) !== -1 : item.rules == deepget(data, item.field)) : false"
-              :loading='item.loading' 
               @click="handleBtnClick({ ...item }, index)"
               size="small">
               {{item.text}}
@@ -80,11 +79,17 @@
      * 向上上传 ref 事件名
      */
     handleBtnClick(item, index) {
-      let { ref } = item
+      let { ref, options: { isLoading } } = item
+      if (isLoading) {
+        this.$set(this.selfList[index].options, 'loading', true)
+      }
       this.$set(this.selfList[index], 'loading', true)
       item.ref && this.$emit(item.ref, { scope: this.scope })
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
+        if (isLoading) {
+          this.$set(this.selfList[index].options, 'loading', false)
+        }
         this.$set(this.selfList[index], 'loading', false)
       }, 800)
     },
