@@ -1,11 +1,19 @@
 <template>
   <div id="app">
+    <img src="./assets/logo.png" alt="">
     <my-search-group 
       @search="handleSearch"
       v-model="form" 
       :list='List'>
+        <!-- <div slot="button">
+          <el-button @click="handleBtnClick">click me</el-button>
+        </div> -->
     </my-search-group>
-    <el-table border stripe :data="data">
+
+    <my-search-button-group
+      :list="btnList">
+    </my-search-button-group>
+    <!-- <el-table border stripe :data="data">
       <el-table-column label="姓名" prop="name"></el-table-column>
       <el-table-column label="年龄" prop="age"></el-table-column>
       <el-table-column label="状态" prop="state">
@@ -13,7 +21,7 @@
           <MySearchButtonGroup @down="handleDown" @up="handleUp" :scope="scope" align='center' :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
         </template>
       </el-table-column>
-    </el-table>
+    </el-table> -->
   </div>
 </template>
 
@@ -41,16 +49,6 @@ const List = [
       {
         label: 'BBBB',
         value: 2
-      }
-    ]
-  },
-  {
-    type: 'button',
-    list: [
-      {
-        text: 'add',
-        ref: 'search',
-        loading: false
       }
     ]
   }
@@ -114,6 +112,9 @@ export default {
     }
   },
   methods: {
+    handleBtnClick(e){
+      console.log(e)
+    },
     handleUp(e){
       console.log('is clicked up', e)
     },
