@@ -8,7 +8,11 @@
     <div class="b-outer">
       <template v-if="['input', 'default', 'normal'].includes(type)">
         <div class="b-inner">
-          <el-input v-model="SearchGroup.form[props]" placeholder="请编辑" size='small'></el-input>
+          <el-input
+            v-model="SearchGroup.form[props]" 
+            placeholder="请编辑" 
+            size='small'>
+          </el-input>
         </div>
       </template>
       <template v-else-if="type === 'select'">
@@ -23,9 +27,11 @@
             </el-select>
           </div>
       </template>
-      <template v-else-if="type === 'button'">
-          <my-search-button-group :key="'btn1' + type" v-on="$listeners" v-if="Array.isArray(sList) && sList.length" :list='sList'></my-search-button-group>
-          <my-search-button-group :key="'btn2' + type" v-on="$listeners" v-else></my-search-button-group>
+      <template v-else-if="['date', 'daterange']">
+          <el-date-picker
+            v-model="SearchGroup.form[props]"
+            v-bind="options">
+          </el-date-picker>
       </template>
       <template v-else-if="type === 'button-custom'">
           <slot name='button'></slot>
@@ -66,7 +72,8 @@
     sValue: {
       type: String,
       default: 'value'
-    }
+    },
+    options: Object
   },
   watch: {},
   computed: {

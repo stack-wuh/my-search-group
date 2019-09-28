@@ -9,10 +9,10 @@
         :label="item.label"
         :props='item.field'
         :s-list='item.list'
+        :options="item.options"
         s-key='label'
         s-value='value'
         v-model='form[item.field]'>
-          <span slot="button">custom button area</span>
       </my-search-item>
     </div>
     <div class="b-search__button">

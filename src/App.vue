@@ -19,7 +19,10 @@ const List = [
   {
     label: '姓名',
     type: 'normal',
-    field: 'name'
+    field: 'name',
+    options: {
+      clearable: true
+    }
   },
   {
     label: '年龄',
@@ -39,6 +42,13 @@ const List = [
         value: 2
       }
     ]
+  },
+  {
+    type: 'date',
+    field: 'date',
+    options: {
+      type: 'date'
+    }
   }
 ]
 const btnList = [
