@@ -78,12 +78,6 @@ Vue.use(mySearch)
 | :-- | :-- |
 | input, nromal, default | type的默认值, 默认展示input输入框 |
 | select | 类型设置为select下拉框 |
-| button | 类型设置为button组 |
-| button-custom | 插槽Slot-自定义button区域 |
-
-### type == button
-> 默认设置两个按钮: search和reset               
-> 可以使用 ref 属性, 自定义事件名 
 
 #### event       
 
@@ -131,3 +125,8 @@ Vue.use(mySearch)
 | :-- | :-- | :-- | :-- |
 | search | $emit传递的事件 | Function | search |
 | any | -- | Function | any |
+
+### Slots
+> slot === button
+
+插槽 自定义的ButtonArea
