@@ -75,8 +75,13 @@
   methods: {
     btnDisabled(from) {
       if (from) {
-        if (Types.isFunc(from)) return from(this.scope)
-        return false
+        if (Types.isFunc(from)) {
+          return from(this.scope)
+        } else if (Types.isBool(from)){
+          return from
+        } else {
+          return true
+        }
       }
       return false
     },

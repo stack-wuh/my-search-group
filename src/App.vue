@@ -10,6 +10,13 @@
     <my-search-button-group
       :list="btnList">
     </my-search-button-group>
+    <el-table :data="[{}, {}]">
+      <el-table-column label="操作">
+        <template scope="{$index}">
+            <my-search-button-group :key="$index" :list="JSON.parse(JSON.stringify(btnList))"></my-search-button-group>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -63,6 +70,7 @@ const btnList = [
     },
     validator: (data) => {
       console.log(data)
+      return true
     }
   },
   {
@@ -72,7 +80,8 @@ const btnList = [
     options: {
       type: 'text',
       isLoading: false
-    }
+    },
+    validator: true
   },
   {
     _id: 2,
