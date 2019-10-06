@@ -87,6 +87,8 @@ Vue.use(mySearch)
 | reset | 重置事件 | reset |
 
 ### slot
+> 更新提示: button区域独立为slot插槽, 不再使用json配置文件生成
+
 | name | 说明 |
 | :-- | :-- |
 | button | 自定义的button区域 |
