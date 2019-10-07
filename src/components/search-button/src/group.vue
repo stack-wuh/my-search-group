@@ -23,6 +23,7 @@
 
 <script>
  import Types from '../../../utils/types'
+ import { clone } from '../../../utils/global'
  export default{
   name: 'MySearchButtonGroup',
   components: {},
@@ -68,7 +69,7 @@
   },
   data(){
     return {
-      selfList: this.list,
+      selfList: clone(this.list),
       Types
     }
   },
@@ -76,7 +77,7 @@
     btnDisabled(from) {
       if (from) {
         if (Types.isFunc(from)) {
-          return from(this.scope)
+          return from({ scope: this.scope, list: this.list, data: this.data })
         } else if (Types.isBool(from)){
           return from
         } else {
@@ -97,7 +98,7 @@
       if (isLoading) {
         this.$set(this.selfList[index].options, 'loading', true)
       }
-      item.ref && this.$emit(item.ref, { scope: this.scope })
+      item.ref && this.$emit(item.ref, { scope: this.scope, list: this.list, data: this.data })
       if (item.tid) clearTimeout(item.tid)
       item.tid = setTimeout(() => {
         if (isLoading) {

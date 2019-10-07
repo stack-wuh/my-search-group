@@ -13,7 +13,7 @@
     <el-table :data="[{}, {}]">
       <el-table-column label="操作">
         <template scope="{$index}">
-            <my-search-button-group :key="$index" :list="JSON.parse(JSON.stringify(btnList))"></my-search-button-group>
+            <my-search-button-group :key="$index" :list="btnList"></my-search-button-group>
         </template>
       </el-table-column>
     </el-table>
@@ -69,7 +69,6 @@ const btnList = [
       isLoading: true
     },
     validator: (data) => {
-      console.log(data)
       return true
     }
   },
