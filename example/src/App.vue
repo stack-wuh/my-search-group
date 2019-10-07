@@ -9,7 +9,7 @@
       <el-table-column label="年龄" prop="age"></el-table-column>
       <el-table-column label="状态" prop="state">
         <template slot-scope="scope">
-          <MySearchButtonGroup :list="JSON.parse(JSON.stringify(btnList))" :data="scope.row"></MySearchButtonGroup>
+          <MySearchButtonGroup :list="btnList" :data="scope.row"></MySearchButtonGroup>
         </template>
       </el-table-column>
     </el-table>
@@ -52,10 +52,12 @@ const List = [
     type: 'button',
     list: [
       {
+        _id: 0,
         text: '搜索',
         ref: 'search'
       },
       {
+        _id: 1,
         text: '重置',
         ref: 'reset'
       }
@@ -66,26 +68,30 @@ const btnList = [
   {
     _id: 0,
     text: 'down',
-    field: ['states', 'state'],
-    rules: [1],
-    loading: false
+    options: {
+      type: 'text',
+      isLoading: true
+    },
+    validator: true
   },
   {
     _id: 1,
     text: 'up',
     type: 'text',
     color: 'red',
-    backgroundColor: '#ffcc00',
-    field: ['states', 'state'],
-    rules: [2],
-    loading: false
+    options: {
+      type: 'text',
+      isLoading: true
+    },
+    validator: () => Boolean(true)
   },
   {
     _id: 2,
     text: 'show',
-    field: ['states', 'state'],
-    rules: [1],
-    loading: false
+    options: {
+      type: 'text',
+      isLoading: false
+    }
   }
 ]
 import mySearch from 'wh-search-group'
